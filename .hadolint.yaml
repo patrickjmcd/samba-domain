@@ -1,0 +1,4 @@
+ignore:
+  - DL3008  # apt-get version pinning - impractical for this project
+  - DL3015  # --no-install-recommends - not required here
+  - SC3009  # brace expansion - false positive, shell is bash
