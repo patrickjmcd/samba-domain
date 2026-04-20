@@ -52,7 +52,7 @@ echo " manage-system = yes" >> /etc/realmd.conf
 
 echo "Now, check off the box for auto-create home directory in the next configuration screen."
 echo -n "Press enter to continue..."
-read E
+read -r _
 pam-auth-update
 
 echo "Time to test..."
@@ -65,7 +65,7 @@ kdestroy
 
 echo ""
 echo -n "If the above test didn't error, press ENTER to join the domain."
-read E
+read -r _
 
 echo ""
 echo "Joining domain"
@@ -101,7 +101,7 @@ realm permit --all
 if [ $USEDOMAININHOMEDIR == "True" ]; then
 	echo "Now, enter '/home/${LO_DOMAIN}/' with the trailing slash in the next configuration screen."
 	echo -n "Press enter to continue..."
-	read E
+	read -r _
 	dpkg-reconfigure apparmor
 fi
 

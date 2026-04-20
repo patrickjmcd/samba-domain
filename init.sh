@@ -6,7 +6,10 @@ appSetup () {
 
 	# Set variables
 	DOMAIN=${DOMAIN:-SAMDOM.LOCAL}
-	DOMAINPASS=${DOMAINPASS:-youshouldsetapassword^123}
+	if [[ -z "${DOMAINPASS}" ]]; then
+		echo "ERROR: DOMAINPASS environment variable is required but not set." >&2
+		exit 1
+	fi
 	JOIN=${JOIN:-false}
 	JOINSITE=${JOINSITE:-NONE}
 	MULTISITE=${MULTISITE:-false}
